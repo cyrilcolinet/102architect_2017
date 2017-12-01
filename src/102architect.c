@@ -31,7 +31,8 @@ void do_rotation(char **av, int offset, double *res, double *matrice)
 
 void do_symetry(char **av, int offset, double *res, double *matrice)
 {
-	
+	check_err(av[offset + 1]);
+	calc_symmetery(res, matrice, av, offset);
 }
 
 double *check_option(double *res, double *matrice, char **av, int ac)
@@ -60,6 +61,15 @@ double *check_option(double *res, double *matrice, char **av, int ac)
 		} else if (check_flag(av[offset], 'r')) {
 			if ((offset + 1) <= ac) {
 				do_rotation(av, offset, &res[0], &matrice[0]);
+			} else {
+				my_puterr("After -r/-hs option, you must enter only one number.\n");
+				exit(84);
+			}
+
+			offset += 2;
+		} else if (check_flag(av[offset], 's')) {
+			if ((offset + 1) <= ac) {
+				do_symetry(av, offset, &res[0], &matrice[0]);
 			} else {
 				my_puterr("After -r/-hs option, you must enter only one number.\n");
 				exit(84);

@@ -38,15 +38,36 @@ void calc_rotation(double *res, double *matrice, char **av, int offset)
 {
 	double rot_matrice[9];
 	double alpha = atof(av[offset + 1]);
-	double rot_x = cos(alpha);
-	double rot_y = sin(alpha);
+	double rot_x = 0;
+	double rot_y = 0;
 	double stock = 0;
 
 	alpha = (alpha * M_PI) / 180;
+	rot_x = cos(alpha);
+	rot_y = sin(alpha);
 	fill_matrice_rotation(&rot_matrice[0], rot_x, rot_y);
 	multiply_matrice(&matrice[0], &rot_matrice[0]);
-	printf("Rotation at a %s degrees\n", av[offset + 1]);
+	printf("Rotation at a %s degrees angle\n", av[offset + 1]);
 	stock = res[0];
 	res[0] = stock * rot_matrice[0] + res[1] * rot_matrice[1];
 	res[1] = stock * rot_matrice[3] + res[1] * rot_matrice[4];
+}
+
+void calc_symmetery(double *res, double *matrice, char **av, int offset)
+{
+	double sym_matrice[9];
+	double alpha = atof(av[offset + 1]);
+	double sym_x = 0;
+	double sym_y = 0;
+	double stock = 0;
+
+	alpha = (alpha * M_PI) / 180;
+	sym_x = cos(2 * alpha);
+	sym_y = sin(2 * alpha);
+	fill_matrice_symmetery(&sym_matrice[0], sym_x, sym_y);
+	multiply_matrice(&matrice[0], &sym_matrice[0]);
+	printf("Symmetry about an axis inclined with an angle of %s degrees\n", av[offset + 1]);
+	stock = res[0];
+	res[0] = stock * sym_matrice[0] + res[1] * sym_matrice[1];
+	res[1] = stock * sym_matrice[3] + res[1] * sym_matrice[4];
 }

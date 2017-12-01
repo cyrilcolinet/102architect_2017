@@ -69,3 +69,16 @@ void fill_matrice_rotation(double *matrice, double rot_x, double rot_y)
 	matrice[7] = 0;
 	matrice[8] = 1;
 }
+
+void fill_matrice_symmetery(double *matrice, double sym_x, double sym_y)
+{
+	matrice[0] = sym_x;
+	matrice[1] = sym_y;
+	matrice[2] = 0;
+	matrice[3] = sym_y;
+	matrice[4] = -sym_x;
+	matrice[5] = 0;
+	matrice[6] = 0;
+	matrice[7] = 0;
+	matrice[8] = 1;
+}
