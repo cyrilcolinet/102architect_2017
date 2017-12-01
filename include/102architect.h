@@ -5,6 +5,7 @@
 ** 102architect functions (header file)
 */
 
+# include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -16,5 +17,13 @@
 
 double 			*check_option(double *res, double *matrice, char **av, int ac);
 void 			calc_translation(double *res, double *matrice, char **av, int i);
+void 			calc_homothety(double *res, double *matrice, char **av, int offset);
+void 			calc_rotation(double *res, double *matrice, char **av, int offset);
+
+//Matrice
+void 			display_matrice(double *matrice);
+void 			multiply_matrice(double *matrice, double *matrice2);
+void 			fill_matrice_honothety(double *matrice, double homo_x, double homo_y);
+void 			fill_matrice_rotation(double *matrice, double rot_x, double rot_y);
 
 # endif

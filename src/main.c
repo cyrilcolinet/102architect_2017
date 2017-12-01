@@ -22,4 +22,7 @@ int main(int ac, char **av)
 	result[1] = atof(av[2]);
 	result[2] = 1;
 	check_option(result, matrice, av, ac);
+	display_matrice(matrice);
+	printf("(%s, %s) => (%.2f, %.2f)\n", av[1], av[2], result[0], result[1]);
+	return (0);
 }

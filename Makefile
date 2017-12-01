@@ -11,7 +11,11 @@ NAME			= 102architect
 
 INCLUDE_DIR		= ./include
 
-SRC				= src/main.c
+SRC				= src/main.c 				\
+				  src/utils.c 				\
+				  src/calculation.c 		\
+				  src/102architect.c 		\
+				  src/matrice.c
 
 UT_SRC			= src/my_ls.c 				\
 				  tests/my_ls_tests.c
@@ -20,7 +24,7 @@ UT_OBJ			= $(UT_SRC:.c=.o)
 
 CFLAGS			= -Wall -Wextra
 
-FLAGS			= $(CFLAGS) -I$(INCLUDE_DIR) -L./lib -lmy
+FLAGS			= $(CFLAGS) -I$(INCLUDE_DIR) -lm -L./lib -lmy
 
 UT_FLAGS		= $(CFLAGS) -lcriterion -lgcov --coverage $(FLAGS)
 
