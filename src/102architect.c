@@ -35,41 +35,25 @@ void do_symetry(char **av, int offset, double *res, double *matrice)
 	calc_symmetery(res, matrice, av, offset);
 }
 
-double *check_option(double *res, double *matrice, char **av, int ac)
+void check_option(double *res, double *matrice, char **av, int ac)
 {
 	int offset = 3;
 
 	while (offset < ac) {
-		if (check_flag(av[offset], 't')) {
+		if (check_flag(av[offset], 't') || check_flag(av[offset], 'h')) {
 			if ((offset + 2) <= ac) {
-				do_translation(av, offset, &res[0], &matrice[0]);
+				if (check_flag(av[offset], 't')) do_translation(av, offset, &res[0], &matrice[0]);
+				else do_homothety(av, offset, &res[0], &matrice[0]);
 			} else {
 				my_puterr("After -t/-h option, you must enter two numbers.\n");
 				exit(84);
 			}
 
 			offset += 3;
-		} else if (check_flag(av[offset], 'h')) {
-			if ((offset + 2) <= ac)  {
-				do_homothety(av, offset, &res[0], &matrice[0]);
-			} else {
-				my_puterr("After -t/-h option, you must enter two numbers.\n");
-				exit(84);
-			}
-
-			offset += 3;
-		} else if (check_flag(av[offset], 'r')) {
+		} else if (check_flag(av[offset], 'r') || check_flag(av[offset], 's')) {
 			if ((offset + 1) <= ac) {
-				do_rotation(av, offset, &res[0], &matrice[0]);
-			} else {
-				my_puterr("After -r/-hs option, you must enter only one number.\n");
-				exit(84);
-			}
-
-			offset += 2;
-		} else if (check_flag(av[offset], 's')) {
-			if ((offset + 1) <= ac) {
-				do_symetry(av, offset, &res[0], &matrice[0]);
+				if (check_flag(av[offset], 'r')) do_rotation(av, offset, &res[0], &matrice[0]);
+				else do_symetry(av, offset, &res[0], &matrice[0]);
 			} else {
 				my_puterr("After -r/-hs option, you must enter only one number.\n");
 				exit(84);
@@ -81,6 +65,4 @@ double *check_option(double *res, double *matrice, char **av, int ac)
 			exit(84);
 		}
 	}
-
-	return (res);
 }

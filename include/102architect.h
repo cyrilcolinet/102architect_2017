@@ -15,7 +15,16 @@
 # ifndef ARCHITECT_H
 # define ARCHITECT_H
 
-double 			*check_option(double *res, double *matrice, char **av, int ac);
+// Basics
+void			check_option(double *res, double *matrice, char **av, int ac);
+
+// Actions
+void 			do_translation(char **av, int offset, double *res, double *matrice);
+void 			do_homothety(char **av, int offset, double *res, double *matrice);
+void 			do_rotation(char **av, int offset, double *res, double *matrice);
+void 			do_symetry(char **av, int offset, double *res, double *matrice);
+
+// Calculus
 void 			calc_translation(double *res, double *matrice, char **av, int i);
 void 			calc_homothety(double *res, double *matrice, char **av, int offset);
 void 			calc_rotation(double *res, double *matrice, char **av, int offset);
