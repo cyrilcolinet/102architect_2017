@@ -25,8 +25,12 @@ void calc_homothety(double *res, double *matrice, char **av, int offset)
 	double homo_x = atof(av[offset + 1]);
 	double homo_y = atof(av[offset + 2]);
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 6; i++) {
 		matrice[i] *= ((i <= 2) ? homo_x : homo_y);
+
+		if (matrice[i] == 0)
+			matrice[i] = 0;
+	}
 
 	printf("Homothety by the ratios %.0f and %.0f\n", homo_x, homo_y);
 
