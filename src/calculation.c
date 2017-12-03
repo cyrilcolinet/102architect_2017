@@ -47,7 +47,7 @@ void calc_rotation(double *res, double *matrice, char **av, int offset)
 	rot_y = sin(alpha);
 	fill_matrice_rotation(&rot_matrice[0], rot_x, rot_y);
 	multiply_matrice(&matrice[0], &rot_matrice[0]);
-	printf("Rotation at a %s degrees angle\n", av[offset + 1]);
+	printf("Rotation at a %s degree angle\n", av[offset + 1]);
 	stock = res[0];
 	res[0] = stock * rot_matrice[0] + res[1] * rot_matrice[1];
 	res[1] = stock * rot_matrice[3] + res[1] * rot_matrice[4];
