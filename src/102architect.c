@@ -41,7 +41,7 @@ void check_option(double *res, double *matrice, char **av, int ac)
 
 	while (offset < ac) {
 		if (check_flag(av[offset], 't') || check_flag(av[offset], 'h')) {
-			if ((offset + 2) <= ac) {
+			if ((offset + 3) <= ac) {
 				if (check_flag(av[offset], 't')) do_translation(av, offset, &res[0], &matrice[0]);
 				else do_homothety(av, offset, &res[0], &matrice[0]);
 			} else {
@@ -51,7 +51,7 @@ void check_option(double *res, double *matrice, char **av, int ac)
 
 			offset += 3;
 		} else if (check_flag(av[offset], 'r') || check_flag(av[offset], 's')) {
-			if ((offset + 1) <= ac) {
+			if ((offset + 2) <= ac) {
 				if (check_flag(av[offset], 'r')) do_rotation(av, offset, &res[0], &matrice[0]);
 				else do_symetry(av, offset, &res[0], &matrice[0]);
 			} else {
