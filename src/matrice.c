@@ -55,6 +55,10 @@ void fill_matrice_honothety(double *matrice, double homo_x, double homo_y)
 	matrice[6] = 0;
 	matrice[7] = 0;
 	matrice[8] = 1;
+
+	for (int i = 0; i < 9; i++)
+		if (matrice[i] == 0)
+			matrice[i] = 0;
 }
 
 void fill_matrice_rotation(double *matrice, double rot_x, double rot_y)
@@ -68,6 +72,10 @@ void fill_matrice_rotation(double *matrice, double rot_x, double rot_y)
 	matrice[6] = 0;
 	matrice[7] = 0;
 	matrice[8] = 1;
+
+	for (int i = 0; i < 9; i++)
+		if (matrice[i] == 0)
+			matrice[i] = 0;
 }
 
 void fill_matrice_symmetery(double *matrice, double sym_x, double sym_y)
@@ -81,4 +89,8 @@ void fill_matrice_symmetery(double *matrice, double sym_x, double sym_y)
 	matrice[6] = 0;
 	matrice[7] = 0;
 	matrice[8] = 1;
+
+	for (int i = 0; i < 9; i++)
+		if (matrice[i] == 0)
+			matrice[i] = 0;
 }

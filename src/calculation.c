@@ -14,6 +14,13 @@ void calc_translation(double *res, double *matrice, char **av, int offset)
 
 	matrice[2] += trans_x;
 	matrice[5] += trans_y;
+
+	if (matrice[2] == 0)
+		matrice[2] = 0;
+	
+	if (matrice[5] == 0)
+		matrice[5] = 0;
+
 	printf("Translation by the vector (%.0f, %.0f)\n", trans_x, trans_y);
 
 	res[0] += trans_x;
