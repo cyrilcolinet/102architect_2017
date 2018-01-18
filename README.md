@@ -1,4 +1,4 @@
-# Architect - Home planning and hoogeneous plan coordinates [![Build Status](https://travis-ci.org/mrlizzard/105torus_2017.svg?branch=master)](https://travis-ci.org/mrlizzard/105torus_2017)
+# Architect - Home planning and hoogeneous plan coordinates [![Build Status](https://travis-ci.org/mrlizzard/102architect_2017.svg?branch=master)](https://travis-ci.org/mrlizzard/102architect_2017)
 
 - **Binary name:** 102architect
 - **Repository name:** 102architect_2017
