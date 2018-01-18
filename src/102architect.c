@@ -45,7 +45,7 @@ void check_option(double *res, double *matrice, char **av, int ac)
 				if (check_flag(av[offset], 't')) do_translation(av, offset, &res[0], &matrice[0]);
 				else do_homothety(av, offset, &res[0], &matrice[0]);
 			} else {
-				my_puterr("After -t/-h option, you must enter two numbers.\n");
+				my_puterr("After -t/-h option, you must enter two numbers.\n", false);
 				exit(84);
 			}
 
@@ -55,13 +55,13 @@ void check_option(double *res, double *matrice, char **av, int ac)
 				if (check_flag(av[offset], 'r')) do_rotation(av, offset, &res[0], &matrice[0]);
 				else do_symetry(av, offset, &res[0], &matrice[0]);
 			} else {
-				my_puterr("After -r/-hs option, you must enter only one number.\n");
+				my_puterr("After -r/-hs option, you must enter only one number.\n", false);
 				exit(84);
 			}
 
 			offset += 2;
 		} else {
-			my_puterr("Unknowned option. Only -thrs flags allowed.\n");
+			my_puterr("Unknowned option. Only -thrs flags allowed.\n", false);
 			exit(84);
 		}
 	}

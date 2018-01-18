@@ -16,7 +16,7 @@ bool check_flag(char *param, char flag) {
 void check_err(char *str)
 {
 	if (!my_str_isnum(str)) {
-		my_puterr("After -t/-h, you must enter two numbers.\n");
+		my_puterr("After -t/-h, you must enter two numbers.\n", false);
 		exit(84);
 	}
 }

@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	double result[3];
 
 	if (ac < 5) {
-		my_puterr("Missing arguments. Minimum 5 arguments needed.\n");
+		my_puterr("Missing arguments. Minimum 5 arguments needed.\n", false);
 		return (84);
 	}
 

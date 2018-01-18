@@ -29,8 +29,9 @@ void display_matrice(double *matrice)
 void multiply_matrice(double *matrice, double *matrice2)
 {
 	double mat[9];
+	int i;
 
-	for (int i = 0; i < 9; i++)
+	for (i = 0; i < 9; i++)
 		mat[i] = matrice[i];
 
 	matrice[0] = mat[0] * matrice2[0] + mat[1] * matrice2[3] + mat[2] * matrice2[6];
@@ -46,6 +47,8 @@ void multiply_matrice(double *matrice, double *matrice2)
 
 void fill_matrice_honothety(double *matrice, double homo_x, double homo_y)
 {
+	int i;
+
 	matrice[0] = homo_x;
 	matrice[1] = 0;
 	matrice[2] = 0;
@@ -56,13 +59,15 @@ void fill_matrice_honothety(double *matrice, double homo_x, double homo_y)
 	matrice[7] = 0;
 	matrice[8] = 1;
 
-	for (int i = 0; i < 9; i++)
+	for (i = 0; i < 9; i++)
 		if (matrice[i] == 0)
 			matrice[i] = 0;
 }
 
 void fill_matrice_rotation(double *matrice, double rot_x, double rot_y)
 {
+	int i;
+
 	matrice[0] = rot_x;
 	matrice[1] = -rot_y;
 	matrice[2] = 0;
@@ -73,13 +78,15 @@ void fill_matrice_rotation(double *matrice, double rot_x, double rot_y)
 	matrice[7] = 0;
 	matrice[8] = 1;
 
-	for (int i = 0; i < 9; i++)
+	for (i = 0; i < 9; i++)
 		if (matrice[i] == 0)
 			matrice[i] = 0;
 }
 
 void fill_matrice_symmetery(double *matrice, double sym_x, double sym_y)
 {
+	int i;
+
 	matrice[0] = sym_x;
 	matrice[1] = sym_y;
 	matrice[2] = 0;
@@ -90,7 +97,7 @@ void fill_matrice_symmetery(double *matrice, double sym_x, double sym_y)
 	matrice[7] = 0;
 	matrice[8] = 1;
 
-	for (int i = 0; i < 9; i++)
+	for (i = 0; i < 9; i++)
 		if (matrice[i] == 0)
 			matrice[i] = 0;
 }
