@@ -1,4 +1,4 @@
-# Architect - Home planning and hoogeneous plan coordinates [![Build Status](https://travis-ci.org/mrlizzard/102architect_2017.svg?branch=master)](https://travis-ci.org/mrlizzard/102architect_2017)
+# Architect - Home planning and plan coordinates [![Build Status](https://travis-ci.org/mrlizzard/102architect_2017.svg?branch=master)](https://travis-ci.org/mrlizzard/102architect_2017)
 
 - **Binary name:** 102architect
 - **Repository name:** 102architect_2017
@@ -10,8 +10,7 @@
 
 # Subject
 
-Y
-ou are working on a homeplanning software for an firm of architects.
+You are working on a homeplanning software for an firm of architects.
 The software should allow a simplification of the plan drawing process, and integrate various features, such as scale management, changing the point of view, moving doors and windows along walls,...
 You are in charge of the part concerning geometric transformations (rotations to change point of view, translations to move an object, homtheties to zoom in and out, symmetries and any combination of these transformations). So, the goal of this project is to develop an application to compute points images in the plan after several transformations.
 
