@@ -37,6 +37,8 @@ O being the origin of both axis, here are the transformations to be implemented 
   - **-r** _phi_: rotation centered in O at angle _phi_ degrees
   - **-s** _phi_: symmetry about the axis passing by 0 and inclined with an _phi_ degree angle
 
+> :exclamation: The use of library including matrix calculus (such as numpy) is prohibited !
+
 ## Bonus
 
 - adding other transformations
