@@ -15,9 +15,9 @@ SRC 			= src/main.c 		\
 			  src/matrice.c 	\
 			  src/utils.c
 
-CFLAGS 			= -Wall -Wextra -I./include --coverage
+CFLAGS 			= -Wall -Wextra -I./include -lm --coverage
 
-EXTRA_FLAGS 		= -lm -L./lib/ -lmy -g3
+EXTRA_FLAGS 		= -L./lib/ -lmy -g3
 
 CC 			= gcc
 
