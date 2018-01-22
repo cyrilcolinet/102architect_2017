@@ -1,4 +1,7 @@
-# Architect - Home planning and plan coordinates [![Build Status](https://travis-ci.org/mrlizzard/102architect_2017.svg?branch=master)](https://travis-ci.org/mrlizzard/102architect_2017)
+# Architect - Home planning and plan coordinates
+
+[![Build Status](https://travis-ci.org/mrlizzard/102architect_2017.svg?branch=master)](https://travis-ci.org/mrlizzard/102architect_2017)
+[![codecov](https://codecov.io/gh/mrlizzard/102architect_2017/branch/master/graph/badge.svg)](https://codecov.io/gh/mrlizzard/102architect_2017)
 
 - **Binary name:** 102architect
 - **Repository name:** 102architect_2017
