@@ -5,13 +5,19 @@
 ## Makefile libmy
 ##
 
+## Color variables
+
+SUCCESS				= /bin/echo -e "\x1b[1m\x1b[33m\#\#\x1b[32m $1\x1b[0m"
+
+## Compilation variables
+
 .PHONY				: all, clean, fclean, re
 
 NAME 				= libmy.a
 
 SRC 				= my_atoi.c 					\
 					  my_compute_power_rec.c 		\
-					  my_putnbr_base.c 				\
+					  my_put_nbr_base.c				\
 					  my_compute_square_root.c 		\
 					  my_is_prime.c 				\
 					  my_find_prime_sup.c 			\
@@ -44,6 +50,7 @@ SRC 				= my_atoi.c 					\
 					  my_strncat.c 					\
 					  my_strncpy.c 					\
 					  my_strstr.c 					\
+					  my_count_delim_part.c 		\
 					  my_strtok.c 					\
 					  my_strupcase.c 				\
 					  my_swap.c 					\
@@ -73,21 +80,24 @@ REMOTE_INCLUDE 		= ../../include/
 
 INCLUDE_FILE		= my.h
 
-OBJ 				= $(SRC:.c=.o)
+LIB_OBJ 			= $(SRC:.c=.o)
 
 all:				$(NAME)
 					$(CP) $(NAME) ../$(NAME)
 					$(CP) $(INCLUDE)/$(INCLUDE_FILE) $(REMOTE_INCLUDE)
+					@$(call SUCCESS, "Header\(s\) and static library\(ies\) copied.")
 
-$(NAME):			$(OBJ)
-					$(AR) $(NAME) $(OBJ)
+$(NAME):			$(LIB_OBJ)
+					$(AR) $(NAME) $(LIB_OBJ)
+					@$(call SUCCESS, "Library successfully compiled.")
 
 clean:
-					$(RM) $(OBJ)
+					$(RM) $(LIB_OBJ)
 
 fclean: 			clean
 					$(RM) ../$(NAME)
 					$(RM) $(NAME)
 					$(RM) $(REMOTE_INCLUDE)$(INCLUDE_FILE)
+					@$(call SUCCESS, "Library fully cleaned.")
 
 re: 				fclean all
