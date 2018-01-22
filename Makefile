@@ -1,49 +1,59 @@
 ##
 ## EPITECH PROJECT, 2017
-## 102architect
+## my_ls
 ## File description:
 ## Makefile with build project rule and units tests
 ##
 
 .PHONY			: all, fclean, clean, re, tests_run, library
 
-NAME 			= 102architect
+NAME			= 102architect
 
-SRC 			= src/main.c 		\
-			  src/102architect.c 	\
-			  src/calculation.c 	\
-			  src/matrice.c 	\
-			  src/utils.c
+INCLUDE_DIR		= ./include
 
-CFLAGS 			= -Wall -Wextra -I./include -lm --coverage
+SRC				= src/main.c 				\
+				  src/utils.c 				\
+				  src/calculation.c 		\
+				  src/102architect.c 		\
+				  src/matrice.c
 
-EXTRA_FLAGS 		= -L./lib/ -lmy -g3
+UT_SRC			= src/my_ls.c 				\
+				  tests/my_ls_tests.c
 
-CC 			= gcc
+UT_OBJ			= $(UT_SRC:.c=.o)
 
-RM 			= rm -f
+CFLAGS			= -Wall -Wextra
 
-OBJ 			= $(SRC:.c=.o)
+FLAGS			= $(CFLAGS) -I$(INCLUDE_DIR) -lm -L./lib -lmy
 
-all: 			library $(NAME)
+UT_FLAGS		= $(CFLAGS) -lcriterion -lgcov --coverage $(FLAGS)
 
-$(NAME):		$(OBJ)
-			$(CC) $(CFLAGS) $(EXTRA_FLAGS) $(OBJ) ./lib/my/*.o -o $(NAME)
+## Compile all (without unitary tests)
+all:			library $(NAME)
 
+## Compile library
 library:
-			make -C ./lib
+				make -C ./lib/my
 
+## Compile into $NAME file the output files
+$(NAME):		$(SRC)
+				gcc -o $(NAME) $(SRC) $(FLAGS)
+
+## Clean output files, ut files and valgrind core errors files
 clean:
-			$(RM) $(OBJ)
-			$(RM) vgcore.*
-			$(RM) src/*.gc*
+				rm -f *.o
+				rm -f vgcore.*
+				rm -f *.gc*
 
-fclean: 		clean
-			$(RM) $(NAME)
-			make fclean -C ./lib
+## Clean files bellow, and $NAME file
+fclean:			clean
+				rm -f $(NAME)
+				make fclean -C ./lib/my
 
-re: 			fclean all
+## clean and fileclean before compilation
+re:				fclean all
 
-tests_run:		re
-			@echo "Running units tests..."
-
+## Build and run unitary tests
+tests_run:		
+				gcc -o units $(UT_FLAGS) $(UT_OBJ)
+				./units
