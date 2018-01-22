@@ -17,7 +17,7 @@ SRC 			= src/main.c 		\
 
 CFLAGS 			= -Wall -Wextra -I./include --coverage
 
-EXTRA_FLAGS 		= -L./lib/ -lmy -lm -g3
+EXTRA_FLAGS 		= -lm -L./lib/ -lmy -g3
 
 CC 			= gcc
 
