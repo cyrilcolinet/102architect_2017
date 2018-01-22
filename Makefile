@@ -17,33 +17,33 @@ SRC 			= src/main.c 		\
 
 CFLAGS 			= -Wall -Wextra -I./include --coverage
 
-EXTRA_FLAGS 	= -L./lib/ -lmy -g3
+EXTRA_FLAGS 		= -L./lib/ -lmy -lm -g3
 
-CC 				= gcc
+CC 			= gcc
 
-RM 				= rm -f
+RM 			= rm -f
 
 OBJ 			= $(SRC:.c=.o)
 
 all: 			library $(NAME)
 
 $(NAME):		$(OBJ)
-				$(CC) $(CFLAGS) $(EXTRA_FLAGS) $(OBJ) ./lib/my/*.o -o $(NAME)
+			$(CC) $(CFLAGS) $(EXTRA_FLAGS) $(OBJ) ./lib/my/*.o -o $(NAME)
 
 library:
-				make -C ./lib
+			make -C ./lib
 
 clean:
-				$(RM) $(OBJ)
-				$(RM) vgcore.*
-				$(RM) src/*.gc*
+			$(RM) $(OBJ)
+			$(RM) vgcore.*
+			$(RM) src/*.gc*
 
 fclean: 		clean
-				$(RM) $(NAME)
-				make fclean -C ./lib
+			$(RM) $(NAME)
+			make fclean -C ./lib
 
 re: 			fclean all
 
 tests_run:		re
-				@echo "Running units tests..."
+			@echo "Running units tests..."
 
