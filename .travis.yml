@@ -1,6 +1,9 @@
 language: c
+
 group: stable
+
 os: linux
+
 script:
   - make re
   - ./102architect 5 0 -t -1 1
@@ -8,5 +11,9 @@ script:
   - ./102architect 1 0 -r 90
   - ./102architect 3 -1 -s 270
   - ./102architect 1 2 -t 2 3 -h 1 -2 -r 45 -s 30
+
 notifications:
   email: false
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
